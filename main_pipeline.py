@@ -25,7 +25,8 @@ def check_dependencies():
         'generate_outfit_descriptions.py': 'Step 1b: Generate descriptions',
         'user_profile_manager.py': 'Step 2a: User profile manager',
         'context_collector_agent.py': 'Step 2b: Context collector',
-        'outfit_planner.py': 'Step 3: Outfit planner'
+        'outfit_planner.py': 'Step 3: Outfit planner',
+        'standardize_categories.py': 'Data standardization (category mapping)'
     }
     
     print("\n" + "="*60)
@@ -101,6 +102,24 @@ def run_step_1_catalog_builder():
     
     print("\n✓ 第 1 步完成：衣服目錄前處理")
     return True
+
+
+def run_standardize_categories():
+    """
+    Run category standardization to normalize item categories.
+    This produces `catalog_standardized.json` used to improve recommendation quality.
+    """
+    print("\n" + "="*60)
+    print("🔧 執行分類標準化 (standardize_categories)")
+    print("="*60)
+    try:
+        import standardize_categories
+        standardize_categories.standardize_data()
+        print("✓ 分類標準化完成 (catalog_standardized.json)")
+        return True
+    except Exception as e:
+        print(f"✗ 分類標準化失敗: {e}")
+        return False
 
 
 def run_step_2_context_collector():
@@ -259,6 +278,12 @@ def run_complete_pipeline(skip_user_input: bool = False):
     if not run_step_1_catalog_builder():
         print("\n✗ 步驟 1 失敗")
         return False
+    # After Step 1: run category standardization to normalize categories
+    try:
+        run_standardize_categories()
+    except Exception:
+        # non-fatal: continue pipeline even if standardization fails
+        print("⚠️  分類標準化步驟發生錯誤，將繼續執行後續步驟")
     
     # Step 2: Context Collector
     if skip_user_input:
@@ -317,6 +342,8 @@ def main():
             # Run specific step
             if args.step == 1:
                 run_step_1_catalog_builder()
+                # run standardization after step 1 for better downstream matching
+                run_standardize_categories()
             elif args.step == 2:
                 context = run_step_2_context_collector()
             elif args.step == 3:
