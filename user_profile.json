@@ -1,0 +1,36 @@
+{
+  "name": "Guest",
+  "location": {
+    "city": "Taipei",
+    "country_code": "TW"
+  },
+  "style_preferences": [
+    "休閒風",
+    "極簡風"
+  ],
+  "color_analysis": {
+    "season_type": "unknown",
+    "palette": {
+      "best_colors": [],
+      "avoid_colors": [],
+      "neutrals": []
+    },
+    "favorite_colors": [
+      "Blue",
+      "White"
+    ],
+    "dislike_colors": [
+      "None"
+    ]
+  },
+  "fit_preferences": [
+    "合身"
+  ],
+  "common_occasions": [
+    "休閒"
+  ],
+  "temperature_sensitivity": "正常",
+  "created_at": "2025-12-11T01:24:00.055061",
+  "last_updated": "2025-12-11T01:24:00.055061",
+  "version": "1.0"
+}

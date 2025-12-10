@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-12-11T01:25:44.673960",
+  "context_summary": {
+    "temperature": 22.0,
+    "weather": "Partly cloudy",
+    "occasion": "休閒外出",
+    "formality": "casual",
+    "color_preference": [
+      "Blue",
+      "White"
+    ],
+    "avoid_colors": [
+      "None"
+    ]
+  },
+  "recommendations": {
+    "Shopping": {
+      "Upper": [
+        {
+          "filename": "46.jpg",
+          "subcategory": "Blouse",
+          "color": "White",
+          "style": "Retro (70s), Coquette, Vintage Inspired",
+          "description": "This is a fitted, cropped cream-colored blouse made of a textured fabric, featuring a pointed collar and dramatically flared bell sleeves, all outlined with a delicate black, wavy contrast trim."
+        }
+      ],
+      "Lower": [
+        {
+          "filename": "7.jpg",
+          "subcategory": "Pants",
+          "color": "Beige",
+          "style": "Classic",
+          "description": "A pair of beige pants with a relaxed silhouette."
+        }
+      ]
+    },
+    "Dinner": {
+      "Upper": [
+        {
+          "filename": "46.jpg",
+          "subcategory": "Blouse",
+          "color": "White",
+          "style": "Retro (70s), Coquette, Vintage Inspired",
+          "description": "This is a fitted, cropped cream-colored blouse made of a textured fabric, featuring a pointed collar and dramatically flared bell sleeves, all outlined with a delicate black, wavy contrast trim."
+        }
+      ],
+      "Lower": [
+        {
+          "filename": "7.jpg",
+          "subcategory": "Pants",
+          "color": "Beige",
+          "style": "Classic",
+          "description": "A pair of beige pants with a relaxed silhouette."
+        }
+      ]
+    }
+  },
+  "total_suitable": 26,
+  "comfort_tips": [
+    "輕薄外套即可",
+    "可穿長袖或短袖",
+    "舒適溫度範圍",
+    "注意室內外溫差"
+  ]
+}

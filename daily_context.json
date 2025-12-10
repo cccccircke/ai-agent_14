@@ -1,0 +1,61 @@
+{
+  "weather": {
+    "temperature": 22.0,
+    "feels_like": 21.5,
+    "humidity": 65,
+    "weather_condition": "Partly cloudy",
+    "wind_speed": 3.5,
+    "city": "Taipei",
+    "timestamp": "2025-12-11T01:24:01.361171",
+    "mock_data": true
+  },
+  "daily_context": {
+    "occasion": "休閒外出",
+    "formality": "casual",
+    "formality_name": "休閒",
+    "dress_code": null,
+    "has_dress_code": false,
+    "activities": [
+      "Shopping",
+      "Dinner"
+    ],
+    "duration_hours": 8.0,
+    "outdoor_time": 2.0,
+    "style_preference": "休閒風",
+    "color_preference": [
+      "Blue",
+      "White"
+    ],
+    "avoid_colors": [
+      "None"
+    ],
+    "special_requirements": "Comfortable",
+    "timestamp": "2025-12-11T01:25:44.527342"
+  },
+  "comfort_analysis": {
+    "comfort_level": "comfortable",
+    "layers_needed": "light",
+    "recommendations": [
+      "輕薄外套即可",
+      "可穿長袖或短袖",
+      "舒適溫度範圍",
+      "注意室內外溫差"
+    ],
+    "temperature": 22.0,
+    "adjusted_temperature": 22.0,
+    "user_sensitivity": "正常"
+  },
+  "user_profile_summary": {
+    "name": "Guest",
+    "location": {
+      "city": "Taipei",
+      "country_code": "TW"
+    },
+    "style_preferences": [
+      "休閒風",
+      "極簡風"
+    ],
+    "color_season": "unknown"
+  },
+  "collection_timestamp": "2025-12-11T01:25:44.527342"
+}
