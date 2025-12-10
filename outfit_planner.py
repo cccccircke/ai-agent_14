@@ -376,8 +376,121 @@ class OutfitPlanner:
         
         # Categorize recommendations
         recommendations = self._categorize_outfits(candidates)
-        
-        # Generate recommendation report
+
+        # Helper: detect conflicting occasions (e.g., 優雅 and 戶外)
+        def _detect_conflicting_occasions(occasion_str: str, daily_ctx: Dict) -> Optional[List[str]]:
+            if not occasion_str:
+                return None
+            occ = occasion_str.lower()
+            # direct keywords
+            if '優雅' in occ and '戶外' in occ:
+                return ['優雅', '戶外']
+
+            # split by common separators
+            for sep in ['、', ',', '/', ';', ' and ', ' & ']:
+                if sep in occasion_str:
+                    parts = [p.strip() for p in occasion_str.split(sep) if p.strip()]
+                    if len(parts) > 1:
+                        return parts
+
+            # fallback: check activities list in daily context
+            activities = daily_ctx.get('activities') or daily_ctx.get('activity_list')
+            if activities and isinstance(activities, list) and len(activities) > 1:
+                return activities
+
+            return None
+
+        conflicting = _detect_conflicting_occasions(occasion, daily_context)
+
+        # Function to choose a single best upper+lower pair (or a single dress/set)
+        def _choose_best_pair(categorized: Dict) -> Dict:
+            # If both Upper and Lower available, choose best complementary pair
+            uppers = categorized.get('Upper', [])
+            lowers = categorized.get('Lower', [])
+
+            if uppers and lowers:
+                best_pair = None
+                best_score = -1.0
+
+                # limit search to top N candidates to save time
+                top_n = 8
+                upper_candidates = uppers[:top_n]
+                lower_candidates = lowers[:top_n]
+
+                for u in upper_candidates:
+                    u_fname = u['filename']
+                    # find top complementary lowers for this upper
+                    comps = self.find_complementary_outfits(u_fname, [l['filename'] for l in lower_candidates], top_k=top_n)
+                    if not comps:
+                        continue
+                    # comps are (filename, similarity)
+                    top_candidate, score = comps[0]
+                    if score > best_score:
+                        best_score = score
+                        # find lower info dict
+                        lower_info = next((l for l in lower_candidates if l['filename'] == top_candidate), None)
+                        if lower_info:
+                            best_pair = ({'Upper': [u], 'Lower': [lower_info]})
+
+                if best_pair:
+                    return best_pair
+
+            # If no upper/lower pairs, prefer Set or Dress
+            if 'Set' in categorized and categorized['Set']:
+                return {'Set': [categorized['Set'][0]]}
+            if 'Dress' in categorized and categorized['Dress']:
+                return {'Dress': [categorized['Dress'][0]]}
+
+            # Fallback: prefer single category in order: Upper+Lower pair, Set, Dress, Upper, Lower, Other
+            if 'Upper' in categorized and 'Lower' in categorized and categorized['Upper'] and categorized['Lower']:
+                return {'Upper': [categorized['Upper'][0]], 'Lower': [categorized['Lower'][0]]}
+            if 'Set' in categorized and categorized['Set']:
+                return {'Set': [categorized['Set'][0]]}
+            if 'Dress' in categorized and categorized['Dress']:
+                return {'Dress': [categorized['Dress'][0]]}
+            if 'Upper' in categorized and categorized['Upper']:
+                return {'Upper': [categorized['Upper'][0]]}
+            if 'Lower' in categorized and categorized['Lower']:
+                return {'Lower': [categorized['Lower'][0]]}
+            # final fallback: return empty dict
+            return {}
+
+        # If conflicting occasions detected, produce one pair per sub-occasion
+        if conflicting:
+            multi_recommendations = {}
+            for sub in conflicting:
+                sub_formality = formality  # keep same formality unless more complex mapping exists
+                # re-filter by occasion-specific formality if needed (simple approach)
+                sub_temp_suitable = temp_suitable
+                sub_occasion_suitable = self.filter_by_occasion_formality(sub_formality, sub)
+                sub_candidates = list(set(sub_temp_suitable) & set(sub_occasion_suitable) & set(color_suitable))
+                sub_categorized = self._categorize_outfits(sub_candidates)
+                chosen = _choose_best_pair(sub_categorized)
+                multi_recommendations[sub] = chosen
+
+            # Build result using multi_recommendations
+            result = {
+                'timestamp': datetime.now().isoformat(),
+                'context_summary': {
+                    'temperature': temperature,
+                    'weather': weather.get('weather_condition'),
+                    'occasion': occasion,
+                    'formality': formality,
+                    'color_preference': color_pref,
+                    'avoid_colors': avoid_colors
+                },
+                'recommendations': multi_recommendations,
+                'total_suitable': len(candidates),
+                'comfort_tips': comfort_analysis.get('recommendations', [])
+            }
+
+            self._print_recommendations(result)
+            return result
+
+        # Normal case: choose a single best pair
+        chosen_pair = _choose_best_pair(recommendations)
+
+        # Build result with only the chosen items
         result = {
             'timestamp': datetime.now().isoformat(),
             'context_summary': {
@@ -388,7 +501,7 @@ class OutfitPlanner:
                 'color_preference': color_pref,
                 'avoid_colors': avoid_colors
             },
-            'recommendations': recommendations,
+            'recommendations': chosen_pair,
             'total_suitable': len(candidates),
             'comfort_tips': comfort_analysis.get('recommendations', [])
         }
