@@ -101,6 +101,13 @@ def run_step_1_catalog_builder():
         print("\n[1b] ✓ 衣服文字描述已存在")
     
     print("\n✓ 第 1 步完成：衣服目錄前處理")
+    # 在第 1 步結束後立即嘗試執行分類標準化，以便產生 `catalog_standardized.json`
+    try:
+        run_standardize_categories()
+    except Exception:
+        # non-fatal: 紀錄警告後繼續，讓後續步驟仍能執行
+        print("⚠️  分類標準化步驟發生錯誤，將繼續執行後續步驟")
+
     return True
 
 
