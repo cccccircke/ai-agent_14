@@ -576,12 +576,24 @@ class OutfitPlanner:
         print(f"\n👚 衣服推薦 (共 {result['total_suitable']} 件):")
         
         for category, outfits in result['recommendations'].items():
-            print(f"\n【{category}】")
-            for outfit in outfits[:3]:  # Show top 3 per category
-                print(f"  • {outfit['filename']}: {outfit['subcategory']}")
-                print(f"    顏色: {outfit['color']}")
-                if outfit['description']:
-                    print(f"    描述: {outfit['description'][:80]}...")
+            # Check if this is a nested recommendation (multi-occasion)
+            if isinstance(outfits, dict):
+                print(f"\n【{category}】")
+                for sub_cat, sub_outfits in outfits.items():
+                    print(f"  [{sub_cat}]")
+                    for outfit in sub_outfits[:3]:
+                        print(f"    • {outfit['filename']}: {outfit['subcategory']}")
+                        print(f"      顏色: {outfit['color']}")
+                        if outfit['description']:
+                            print(f"      描述: {outfit['description'][:80]}...")
+            else:
+                # Standard flat recommendation
+                print(f"\n【{category}】")
+                for outfit in outfits[:3]:  # Show top 3 per category
+                    print(f"  • {outfit['filename']}: {outfit['subcategory']}")
+                    print(f"    顏色: {outfit['color']}")
+                    if outfit['description']:
+                        print(f"    描述: {outfit['description'][:80]}...")
     
     def save_recommendation(self, result: Dict, output_path: str = "outfit_recommendation.json"):
         """
