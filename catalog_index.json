@@ -1,0 +1,292 @@
+{
+  "1.jpg": {
+    "filename": "1.jpg",
+    "embedding_index": 0,
+    "extension": ".jpg"
+  },
+  "2.jpg": {
+    "filename": "2.jpg",
+    "embedding_index": 1,
+    "extension": ".jpg"
+  },
+  "3.jpg": {
+    "filename": "3.jpg",
+    "embedding_index": 2,
+    "extension": ".jpg"
+  },
+  "4.jpg": {
+    "filename": "4.jpg",
+    "embedding_index": 3,
+    "extension": ".jpg"
+  },
+  "5.jpg": {
+    "filename": "5.jpg",
+    "embedding_index": 4,
+    "extension": ".jpg"
+  },
+  "6.jpg": {
+    "filename": "6.jpg",
+    "embedding_index": 5,
+    "extension": ".jpg"
+  },
+  "7.jpg": {
+    "filename": "7.jpg",
+    "embedding_index": 6,
+    "extension": ".jpg"
+  },
+  "8.jpg": {
+    "filename": "8.jpg",
+    "embedding_index": 7,
+    "extension": ".jpg"
+  },
+  "9.jpg": {
+    "filename": "9.jpg",
+    "embedding_index": 8,
+    "extension": ".jpg"
+  },
+  "10.jpg": {
+    "filename": "10.jpg",
+    "embedding_index": 9,
+    "extension": ".jpg"
+  },
+  "11.jpg": {
+    "filename": "11.jpg",
+    "embedding_index": 10,
+    "extension": ".jpg"
+  },
+  "12.jpg": {
+    "filename": "12.jpg",
+    "embedding_index": 11,
+    "extension": ".jpg"
+  },
+  "13.jpg": {
+    "filename": "13.jpg",
+    "embedding_index": 12,
+    "extension": ".jpg"
+  },
+  "14.jpg": {
+    "filename": "14.jpg",
+    "embedding_index": 13,
+    "extension": ".jpg"
+  },
+  "15.jpg": {
+    "filename": "15.jpg",
+    "embedding_index": 14,
+    "extension": ".jpg"
+  },
+  "16.jpg": {
+    "filename": "16.jpg",
+    "embedding_index": 15,
+    "extension": ".jpg"
+  },
+  "17.jpg": {
+    "filename": "17.jpg",
+    "embedding_index": 16,
+    "extension": ".jpg"
+  },
+  "18.jpg": {
+    "filename": "18.jpg",
+    "embedding_index": 17,
+    "extension": ".jpg"
+  },
+  "19.jpg": {
+    "filename": "19.jpg",
+    "embedding_index": 18,
+    "extension": ".jpg"
+  },
+  "20.jpg": {
+    "filename": "20.jpg",
+    "embedding_index": 19,
+    "extension": ".jpg"
+  },
+  "21.jpg": {
+    "filename": "21.jpg",
+    "embedding_index": 20,
+    "extension": ".jpg"
+  },
+  "22.jpg": {
+    "filename": "22.jpg",
+    "embedding_index": 21,
+    "extension": ".jpg"
+  },
+  "23.jpg": {
+    "filename": "23.jpg",
+    "embedding_index": 22,
+    "extension": ".jpg"
+  },
+  "24.jpg": {
+    "filename": "24.jpg",
+    "embedding_index": 23,
+    "extension": ".jpg"
+  },
+  "25.jpg": {
+    "filename": "25.jpg",
+    "embedding_index": 24,
+    "extension": ".jpg"
+  },
+  "26.jpg": {
+    "filename": "26.jpg",
+    "embedding_index": 25,
+    "extension": ".jpg"
+  },
+  "27.jpg": {
+    "filename": "27.jpg",
+    "embedding_index": 26,
+    "extension": ".jpg"
+  },
+  "28.jpg": {
+    "filename": "28.jpg",
+    "embedding_index": 27,
+    "extension": ".jpg"
+  },
+  "29.jpg": {
+    "filename": "29.jpg",
+    "embedding_index": 28,
+    "extension": ".jpg"
+  },
+  "30.jpg": {
+    "filename": "30.jpg",
+    "embedding_index": 29,
+    "extension": ".jpg"
+  },
+  "31.jpg": {
+    "filename": "31.jpg",
+    "embedding_index": 30,
+    "extension": ".jpg"
+  },
+  "32.jpg": {
+    "filename": "32.jpg",
+    "embedding_index": 31,
+    "extension": ".jpg"
+  },
+  "33.jpg": {
+    "filename": "33.jpg",
+    "embedding_index": 32,
+    "extension": ".jpg"
+  },
+  "34.jpg": {
+    "filename": "34.jpg",
+    "embedding_index": 33,
+    "extension": ".jpg"
+  },
+  "35.jpg": {
+    "filename": "35.jpg",
+    "embedding_index": 34,
+    "extension": ".jpg"
+  },
+  "36.jpg": {
+    "filename": "36.jpg",
+    "embedding_index": 35,
+    "extension": ".jpg"
+  },
+  "37.jpg": {
+    "filename": "37.jpg",
+    "embedding_index": 36,
+    "extension": ".jpg"
+  },
+  "38.jpg": {
+    "filename": "38.jpg",
+    "embedding_index": 37,
+    "extension": ".jpg"
+  },
+  "39.jpg": {
+    "filename": "39.jpg",
+    "embedding_index": 38,
+    "extension": ".jpg"
+  },
+  "40.jpg": {
+    "filename": "40.jpg",
+    "embedding_index": 39,
+    "extension": ".jpg"
+  },
+  "41.jpg": {
+    "filename": "41.jpg",
+    "embedding_index": 40,
+    "extension": ".jpg"
+  },
+  "42.jpg": {
+    "filename": "42.jpg",
+    "embedding_index": 41,
+    "extension": ".jpg"
+  },
+  "43.jpg": {
+    "filename": "43.jpg",
+    "embedding_index": 42,
+    "extension": ".jpg"
+  },
+  "44.jpg": {
+    "filename": "44.jpg",
+    "embedding_index": 43,
+    "extension": ".jpg"
+  },
+  "45.jpg": {
+    "filename": "45.jpg",
+    "embedding_index": 44,
+    "extension": ".jpg"
+  },
+  "46.jpg": {
+    "filename": "46.jpg",
+    "embedding_index": 45,
+    "extension": ".jpg"
+  },
+  "47.jpg": {
+    "filename": "47.jpg",
+    "embedding_index": 46,
+    "extension": ".jpg"
+  },
+  "48.jpg": {
+    "filename": "48.jpg",
+    "embedding_index": 47,
+    "extension": ".jpg"
+  },
+  "49.jpg": {
+    "filename": "49.jpg",
+    "embedding_index": 48,
+    "extension": ".jpg"
+  },
+  "50.jpg": {
+    "filename": "50.jpg",
+    "embedding_index": 49,
+    "extension": ".jpg"
+  },
+  "51.jpg": {
+    "filename": "51.jpg",
+    "embedding_index": 50,
+    "extension": ".jpg"
+  },
+  "52.jpg": {
+    "filename": "52.jpg",
+    "embedding_index": 51,
+    "extension": ".jpg"
+  },
+  "53.jpg": {
+    "filename": "53.jpg",
+    "embedding_index": 52,
+    "extension": ".jpg"
+  },
+  "54.jpg": {
+    "filename": "54.jpg",
+    "embedding_index": 53,
+    "extension": ".jpg"
+  },
+  "55.jpg": {
+    "filename": "55.jpg",
+    "embedding_index": 54,
+    "extension": ".jpg"
+  },
+  "56.jpg": {
+    "filename": "56.jpg",
+    "embedding_index": 55,
+    "extension": ".jpg"
+  },
+  "57.jpg": {
+    "filename": "57.jpg",
+    "embedding_index": 56,
+    "extension": ".jpg"
+  },
+  "58.jpg": {
+    "filename": "58.jpg",
+    "embedding_index": 57,
+    "extension": ".jpg"
+  }
+}
